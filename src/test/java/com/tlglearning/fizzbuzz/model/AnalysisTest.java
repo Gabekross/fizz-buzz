@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.EnumSet;
 import java.util.Set;
-import org.junit.jupiter.api.function.Executable;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -48,20 +47,4 @@ class AnalysisTest {
     assertThrows(IllegalArgumentException.class, new InvalidInvocation(analysis, value));
   }
 
-  private static class InvalidInvocation implements Executable {
-
-    private final Analysis analysis;
-    private final int value;
-
-    public InvalidInvocation(Analysis analysis, int value) {
-      this.analysis = analysis;
-      this.value = value;
-    }
-
-    @Override
-    public void execute() throws Throwable {
-      analysis.analyze(value);
-    }
-
-  }
 }
