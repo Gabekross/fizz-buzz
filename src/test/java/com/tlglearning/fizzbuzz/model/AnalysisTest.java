@@ -40,6 +40,7 @@ class AnalysisTest {
   @CsvFileSource(resources = "neither.csv", numLinesToSkip = 1)
   void analyze_neither(int value) {
     assertEquals(neitherExpected, analysis.analyze(value));
+    //
   }
 
   @ParameterizedTest
